@@ -1,5 +1,6 @@
 .Button {
-    width: 100px;
     height: 30px;
     background-color: green;
+    grid-column-start: 3;
+    grid-row-start: 2;
 }

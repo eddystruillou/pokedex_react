@@ -1,9 +1,9 @@
 .Card {
     width: 500px;
     height: 500px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 80px auto 80px;
+    grid-template-rows: 15% 300px auto;
     margin: auto;
-    text-align: center;
     background-color: red;
 }
