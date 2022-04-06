@@ -1,4 +1,4 @@
-.Card {
+.card {
     width: 500px;
     height: 500px;
     display: grid;
@@ -6,4 +6,9 @@
     grid-template-rows: 15% 300px auto;
     margin: auto;
     background-color: red;
+}
+
+.title {
+    grid-column-start: 2;
+    text-align: center;
 }

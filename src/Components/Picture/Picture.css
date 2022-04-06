@@ -1,6 +1,11 @@
-.Picture {
+.picture {
     background-color: pink;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
+}
+
+img {
+    width: 100%;
+    height: 250px;
 }
