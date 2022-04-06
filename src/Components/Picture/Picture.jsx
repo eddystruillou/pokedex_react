@@ -1,10 +1,11 @@
 import React from "react";
 import "./Picture.css";
 
-function Picture() {
+function Picture(props) {
+  console.log(props)
     return (
       <div className="picture">
-          <img className="fit-picture" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" />
+          <img className="fit-picture" src={props.source} alt="" />
       </div>
     );
 }

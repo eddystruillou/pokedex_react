@@ -11,7 +11,7 @@ function Card() {
   const [item, setItem] = useState([]);
 
   useEffect(() => {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${1}/`)
+      fetch(`https://pokeapi.co/api/v2/pokemon/${100}/`)
         .then(res => res.json())
         .then(
           (result) => {
@@ -29,9 +29,9 @@ function Card() {
     return (
       <div className="card">
         <h2 className="title">{item.name}</h2>
-        <Picture />
+        <Picture source={item.sprites ? item.sprites.other.dream_world.front_default : ''} />
         <Button />
-        <Description />
+        <Description stats={item.stats ? item.stats : []} />
       </div>
     );
 }
