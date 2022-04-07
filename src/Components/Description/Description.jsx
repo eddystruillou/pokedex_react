@@ -1,12 +1,12 @@
 import React from "react";
 import "./Description.css";
 
-function Description(props) {
+function Description({stats}) {
     return (
       <div className="description">
         <h3>Stats</h3>
         <ul>
-          {props.stats.map(item =>
+          {stats.map(item =>
             <li key={item.base_stat + item.stat.name}>
             <span>{item.stat.name}</span>: <span>{item.base_stat}</span>
             </li>

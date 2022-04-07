@@ -1,10 +1,11 @@
 import React from "react";
 import "./Button.css";
 
-function Button() {
+function Button({onNextPokemon, onPreviousPokemon}) {
     return (
       <div className="button">
-        <button>Suivant</button>
+        <button onClick={onNextPokemon}>Suivant</button>
+        <button onClick={onPreviousPokemon}>Précédent</button>
       </div>
     );
 }

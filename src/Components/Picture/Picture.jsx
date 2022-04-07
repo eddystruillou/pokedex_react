@@ -1,11 +1,11 @@
 import React from "react";
 import "./Picture.css";
 
-function Picture(props) {
-  console.log(props)
+function Picture({source}) {
+  console.log("rendu Picture")
     return (
       <div className="picture">
-          <img className="fit-picture" src={props.source} alt="" />
+          <img className="fit-picture" src={source} alt="" />
       </div>
     );
 }
