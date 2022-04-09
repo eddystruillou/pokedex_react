@@ -1,14 +1,29 @@
 .card {
     width: 500px;
-    height: 500px;
+    height: 600px;
+    
+    /* 
+    Display the content on grid form 
+    */
     display: grid;
     grid-template-columns: 80px auto 80px;
     grid-template-rows: 15% 300px auto;
     margin: auto;
     background-color: red;
+    
+    /* 
+    Need to put position to absolute on this child,
+    and postion relative to the parent (App) to center the content 
+    */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .title {
+    text-transform: uppercase;
     grid-column-start: 2;
     text-align: center;
+    margin: auto;
 }

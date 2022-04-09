@@ -4,8 +4,8 @@ import "./Button.css";
 function Button({onNextPokemon, onPreviousPokemon}) {
     return (
       <div className="button">
-        <button onClick={onNextPokemon}>Suivant</button>
-        <button onClick={onPreviousPokemon}>Précédent</button>
+        <button className="next" onClick={onNextPokemon}>Suivant</button>
+        <button className="previous" onClick={onPreviousPokemon}>Précédent</button>
       </div>
     );
 }

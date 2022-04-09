@@ -3,9 +3,12 @@
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 img {
-    width: 100%;
+    width: 340px;
     height: 250px;
 }
