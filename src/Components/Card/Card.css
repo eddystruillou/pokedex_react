@@ -9,7 +9,9 @@
     grid-template-columns: 80px auto 80px;
     grid-template-rows: 15% 300px auto;
     margin: auto;
-    background-color: red;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgb(36, 37, 38);
     
     /* 
     Need to put position to absolute on this child,

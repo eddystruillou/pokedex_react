@@ -1,9 +1,9 @@
 .description {
-    background-color: blue;
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 3;
     text-align: center;
+    border-radius: 0 0 16px 16px;
 }
 
 h3 {

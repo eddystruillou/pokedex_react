@@ -1,9 +1,18 @@
 .button {
-    background-color: green;
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 2;
     align-self: end;
+    padding: 0 15px 0 15px;
+}
+
+button {
+    border: 5em;
+    background-color: black;
+    font-size: 16px;
+    padding: 0.7em 1em;
+    border-radius: 65px;
+    color: white;
 }
 
 .next {
