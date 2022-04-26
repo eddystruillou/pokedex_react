@@ -1,7 +1,7 @@
 import './App.css';
 import Card from './Components/Card/Card';
 
-function App() {
+const App:React.FC = () => {
   return (
     <div className='App'>
       <Card />
