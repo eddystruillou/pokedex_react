@@ -1,7 +1,12 @@
 import React from "react";
 import "./Button.css";
 
-function Button({onNextPokemon, onPreviousPokemon}) {
+interface Props {
+  onNextPokemon: () => void;
+  onPreviousPokemon: () => void;
+}
+
+const Button:React.FC<Props> = ({onNextPokemon, onPreviousPokemon}) => {
     return (
       <div className="button">
         <button className="next" onClick={onNextPokemon}>❯</button>
