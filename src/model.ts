@@ -13,3 +13,8 @@ export interface PokemonStats {
         name: string;
     }
 }
+
+export interface PokemonLimit {
+    name: string;
+    url: string;
+}
