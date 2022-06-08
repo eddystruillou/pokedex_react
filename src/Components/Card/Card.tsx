@@ -6,9 +6,7 @@ import Picture from "../Picture/Picture";
 import "./Card.css";
 
 const Card = () => {
-  const [error, setError] = useState<any>(null);
   const [id, setId] = useState<number>(30);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [item, setItem] = useState<PokemonStats>();
 
   const handleNextPokemon = function() {
@@ -24,11 +22,6 @@ const Card = () => {
         .then(res => res.json())
         .then(result => {
             setItem(result);
-            setIsLoaded(true);
-          },
-          error => {
-            setError(error);
-            setIsLoaded(true);
           }
         )
     }, [id])

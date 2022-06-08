@@ -1,7 +1,6 @@
 import React from "react";
 import "./Button.css";
 
-// TODO not sure about that
 interface Props {
   onNextPokemon: () => void;
   onPreviousPokemon: () => void;
