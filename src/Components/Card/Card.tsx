@@ -7,8 +7,8 @@ import "./Card.css";
 
 const Card = () => {
   const [id, setId] = useState<number>(30);
-  const [item, setItem] = useState<PokemonStats>();
-  const [test, setTest] = useState<PokemonStats[]>([]);
+  const [pokemon, setPokemon] = useState<PokemonStats>();
+  const [pokemons, setPokemons] = useState<PokemonStats[]>([]);
 
   const handleNextPokemon = function() {
     setId(i => i + 1)
@@ -25,7 +25,7 @@ const Card = () => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       .then(res => res.json())
       .then(result => {
-          setItem(result);
+        setPokemon(result);
         }
       )
   }, [id])
@@ -44,16 +44,16 @@ const Card = () => {
         return Promise.all(promisesArray);
       })
       .then(data => {
-        setTest(data)
+        setPokemons(data);
       });
   }, [])
 
     return (
       <div className="card">
-        <h2 className="title">{item ? item.name : ""}</h2>
-        <Picture source={item && item.sprites ? item.sprites.other.dream_world.front_default : ""} />
+        <h2 className="title">{pokemon ? pokemon.name : ""}</h2>
+        <Picture source={pokemon && pokemon.sprites ? pokemon.sprites.other.dream_world.front_default : ""} />
         <Button onNextPokemon={handleNextPokemon} onPreviousPokemon={handlePreviousPokemon} />
-        <Description stats={item && item.stats ? item.stats : []} />
+        <Description stats={pokemon && pokemon.stats ? pokemon.stats : []} />
       </div>
     );
 }
