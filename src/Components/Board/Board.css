@@ -1,5 +1,5 @@
 .board {
-    width: 850px;
+    width: 950px;
     background-color: white;
     border-radius: 16px;
     box-shadow: 0 6px 15px rgb(36, 37, 38);
@@ -13,4 +13,8 @@ h1 {
 
 hr {
     width: 80%;
+}
+
+li {
+    float: left;
 }

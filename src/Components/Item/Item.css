@@ -1,0 +1,7 @@
+.item {
+    width: 18%;
+    height: 150px;
+    float: left;
+    margin: 1%;
+    background-color: brown;
+}
