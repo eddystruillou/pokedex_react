@@ -1,0 +1,16 @@
+.board {
+    width: 850px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgb(36, 37, 38);
+    margin: 1vh;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    width: 80%;
+}
