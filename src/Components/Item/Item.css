@@ -3,5 +3,18 @@
     height: 150px;
     float: left;
     margin: 1%;
-    background-color: brown;
+    text-align: center;
+    box-shadow: 3px 4px 10px 0 #00000030;
+}
+
+.item:hover {
+    transform: scale(1.1);
+}
+
+img {
+    height: 75%;
+}
+
+.title {
+    font-size: large;
 }

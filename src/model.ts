@@ -18,3 +18,10 @@ export interface PokemonLimit {
     name: string;
     url: string;
 }
+
+export interface PokemonData {
+    name: string;
+    sprites: {
+        front_default: string
+    };
+}

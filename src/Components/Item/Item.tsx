@@ -1,9 +1,12 @@
 import React from 'react';
 import './Item.css';
 
-const Item:React.FC = () => {
+const Item: React.FC<{sprite: string, name: string}> = ({ sprite, name}) => {
   return (
-    <div className='item'>Item</div>
+    <div className='item'>
+      <img src={sprite} alt="#" className="image" />
+      <div className="title">{name}</div>
+    </div>
   )
 }
 
