@@ -6,6 +6,7 @@ import ItemList from '../ItemList/ItemList';
 
 const Board:React.FC = () => {
   const [pokemons, setPokemons] = useState<PokemonData[]>([]);
+  const [filter, setFilter] = useState(false);
 
   /**
    * Get a list of pokemons
@@ -27,9 +28,27 @@ const Board:React.FC = () => {
 
   return (
     <div className='board'>
-        <h1>Pokédex</h1>
-        <hr/>
+      <h1>Pokédex</h1>
+      <hr/>
+      <div className="filters">
+        <button 
+          className="all"
+          style={{background: filter ? "#d1d1d1" : "white"}}
+          onClick={() => setFilter(false)}
+        >
+          All Pokémon
+        </button>
+        <button
+          className="followed"
+          style={{background: filter ? "white" : "#d1d1d1"}}
+          onClick={() => setFilter(true)}
+        >
+          Followed Pokémon
+        </button>
+      </div>
+      <div className="pokeList">
         <ItemList pokeList={pokemons} />
+      </div>
     </div>
   )
 }
