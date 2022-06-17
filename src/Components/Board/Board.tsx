@@ -29,7 +29,6 @@ const Board:React.FC = () => {
   return (
     <div className='board'>
       <h1>Pokédex</h1>
-      <hr/>
       <div className="filters">
         <button 
           className="all"
