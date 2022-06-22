@@ -1,30 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { PokemonData, PokemonLimit } from "../../model";
+import React, { useState } from "react";
+import { useFetchPokemonsQuery } from "../../features/pokemons/pokemons-api-slice";
 import './Board.css';
 // Components
 import ItemList from '../ItemList/ItemList';
 
 const Board:React.FC = () => {
-  const [pokemons, setPokemons] = useState<PokemonData[]>([]);
+  // Used to manage the state of the background when the focus of the tab changes
   const [filter, setFilter] = useState(false);
-
-  /**
-   * Get a list of pokemons
-   */
-   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
-      .then(res => res.json())
-      .then(({ results }) => {
-        let promisesArray =  results.map(async (result:PokemonLimit) => {
-          const res = await fetch(result.url);
-          return await res.json();
-        })
-        return Promise.all(promisesArray);
-      })
-      .then(data => {
-        setPokemons(data);
-      });
-  }, [])
+  // The number of pokemon we want to collect
+  // Need to make it dynamic
+  const [numPokemons, setNumPokemons] = useState(20);
+  // Get list of pokemon
+  const { data = {results: []}, isFetching } = useFetchPokemonsQuery(numPokemons);
 
   return (
     <div className='board'>
@@ -46,7 +33,7 @@ const Board:React.FC = () => {
         </button>
       </div>
       <div className="pokeList">
-        <ItemList pokeList={pokemons} />
+        <ItemList pokeList={data.results} />
       </div>
     </div>
   )
