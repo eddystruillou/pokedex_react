@@ -1,20 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-interface Pokemon {
-  results: [
-    {
-      name: string;
-      url: string;
-    }
-  ]
-}
-
-interface PokemonDetails {
-  name: string;
-    sprites: {
-        front_default: string
-    };
-}
+import { Pokemon, PokemonData } from '../../model';
 
 export const pokemoApiSlice = createApi({
   reducerPath: 'api',
@@ -22,15 +7,16 @@ export const pokemoApiSlice = createApi({
     baseUrl: 'https://pokeapi.co/api/v2/',
   }),
   endpoints: builder => ({
-      fetchPokemons: builder.query<Pokemon, number | void>({
-        query(limit = 10) {
-          return `pokemon/?limit=${limit}`;
-        },
+      fetchPokemons: builder.query<Pokemon[], number | void>({
+        query: (limit = 10) => ({
+          url: `pokemon/?limit=${limit}`
+        }),
+        transformResponse: ({ results }: {results: Pokemon[]}) => results,
       }),
-      fetchPokemonDetails: builder.query<PokemonDetails, string | void>({
-        query(name) {
-          return `pokemon/${name}/`
-        }
+      fetchPokemonDetails: builder.query<PokemonData, string | void>({
+        query: (name) => ({
+          url: `pokemon/${name}/`,
+        })
       })
   })
 });

@@ -11,7 +11,7 @@ const Board:React.FC = () => {
   // Need to make it dynamic
   const [numPokemons, setNumPokemons] = useState(20);
   // Get list of pokemon
-  const { data = {results: []}, isFetching } = useFetchPokemonsQuery(numPokemons);
+  const { data = [], isFetching } = useFetchPokemonsQuery(numPokemons);
 
   return (
     <div className='board'>
@@ -33,7 +33,7 @@ const Board:React.FC = () => {
         </button>
       </div>
       <div className="pokeList">
-        <ItemList pokeList={data.results} />
+        <ItemList pokeList={data} />
       </div>
     </div>
   )

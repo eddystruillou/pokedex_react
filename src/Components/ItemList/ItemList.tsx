@@ -1,13 +1,9 @@
+import { Pokemon } from '../../model';
 import './ItemList.css';
 // Components
 import Item from '../Item/Item';
 
-interface PokeData {
-  name: string
-  url: string
-}
-
-const ItemList = ({ pokeList }: {pokeList: PokeData[]}) => {
+const ItemList = ({ pokeList }: {pokeList: Pokemon[]}) => {
   return (
     <div className='itemList'>
       {pokeList.map(poke =>
