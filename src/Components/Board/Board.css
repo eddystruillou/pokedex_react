@@ -6,6 +6,15 @@
     margin: 1vh;
 }
 
+.select {
+    width: 100px;
+    height: 45px;
+    margin: 0 10px 5px 25px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+
 h1 {
     display: flex;
     justify-content: center;
