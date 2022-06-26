@@ -8,7 +8,7 @@ const Item = ({ pokeName }: {pokeName: string}) => {
   // State to know if the pokemon is followed or not
   const [follow, setFollow] = useState(false);
   // Get informations of the pokemon from de the API
-  const { data = {name: "", sprites: {front_default: ""}}, isFetching } = useFetchPokemonDetailsQuery(pokeName);
+  const { data = {name: "", img: "", isFollow: false}, isFetching } = useFetchPokemonDetailsQuery(pokeName);
 
   /**
    * Used to follow or unfollow a pokemon
@@ -23,7 +23,7 @@ const Item = ({ pokeName }: {pokeName: string}) => {
 
   return (
     <div className='item'>
-      <img src={data && data.sprites ? data.sprites.front_default : ""} alt="#" className="image" />
+      <img src={data.img} alt="#" className="image" />
       <img src={follow ? followIcon : unfollowIcon} className="icon" onClick={handleFollowOrUnfollow} />
       <div className="title">{data.name}</div>
     </div>

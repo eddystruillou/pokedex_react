@@ -1,8 +1,8 @@
 import React from "react";
-import { PokemonStats } from "../../model";
+import { PokemonData } from "../../model";
 import "./Description.css";
 
-const Description = ({stats}: {stats: PokemonStats[]}) => {
+const Description = ({stats}: {stats: PokemonData[]}) => {
     return (
       <div className="description">
         <hr/>

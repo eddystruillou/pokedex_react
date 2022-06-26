@@ -1,9 +1,9 @@
-import { Pokemon } from '../../model';
+import { PokemonLimit } from '../../model';
 import './ItemList.css';
 // Components
 import Item from '../Item/Item';
 
-const ItemList = ({ pokeList }: {pokeList: Pokemon[]}) => {
+const ItemList = ({ pokeList }: {pokeList: PokemonLimit[]}) => {
   return (
     <div className='itemList'>
       {pokeList.map(poke =>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PokemonStats, PokemonLimit } from "../../model";
+import { PokemonData, PokemonLimit } from "../../model";
 import Button from "../Button/Button";
 import Description from "../Description/Description";
 import Picture from "../Picture/Picture";
@@ -7,8 +7,8 @@ import "./Card.css";
 
 const Card = () => {
   const [id, setId] = useState<number>(30);
-  const [pokemon, setPokemon] = useState<PokemonStats>();
-  const [pokemons, setPokemons] = useState<PokemonStats[]>([]);
+  const [pokemon, setPokemon] = useState<PokemonData>();
+  const [pokemons, setPokemons] = useState<PokemonData[]>([]);
 
   const handleNextPokemon = function() {
     setId(i => i + 1)

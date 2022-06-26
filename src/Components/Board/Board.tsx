@@ -8,7 +8,6 @@ const Board:React.FC = () => {
   // Used to manage the state of the background when the focus of the tab changes
   const [filter, setFilter] = useState(false);
   // The number of pokemon we want to collect
-  // Need to make it dynamic
   const [numPokemons, setNumPokemons] = useState(15);
   // Get list of pokemon
   const { data = [], isFetching } = useFetchPokemonsQuery(numPokemons);

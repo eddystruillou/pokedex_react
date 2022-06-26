@@ -1,17 +1,10 @@
 /**
- * Type return from the BE with limit query
- */
-export interface Pokemon {
-    name: string;
-    url: string;
-}
-
-/**
  * Type of data return for one pokemon
  */
-export interface PokemonStats {
+export interface PokemonData {
     name: string;
     sprites: {
+        front_default: string
         other: {
             dream_world: {
                 front_default: string;
@@ -26,7 +19,7 @@ export interface PokemonStats {
 }
 
 /**
- * Deprecated, used in Card component, to be removed
+ * Type of data return from the limit query
  */
 export interface PokemonLimit {
     name: string;
@@ -34,11 +27,10 @@ export interface PokemonLimit {
 }
 
 /**
- * Type used in Item component
+ * Type of formated data in a simpler format
  */
-export interface PokemonData {
+export interface PokemonFormatedData {
     name: string;
-    sprites: {
-        front_default: string
-    };
+    img: string;
+    isFollow: boolean;
 }
