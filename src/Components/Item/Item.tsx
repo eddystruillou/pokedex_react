@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { useFetchPokemonDetailsQuery } from '../../features/pokemons/pokemons-api-slice';
+import { PokemonFormatedData } from '../../model';
 import unfollowIcon from './../../images/unfollow.png';
 import followIcon from './../../images/follow.png';
 import './Item.css';
 
-const Item = ({ pokeName }: {pokeName: string}) => {
+const Item = ({ pokeData }: {pokeData: PokemonFormatedData}) => {
   // State to know if the pokemon is followed or not
   const [follow, setFollow] = useState(false);
-  // Get informations of the pokemon from de the API
-  const { data = {name: "", img: "", isFollow: false}, isFetching } = useFetchPokemonDetailsQuery(pokeName);
 
   /**
    * Used to follow or unfollow a pokemon
@@ -23,9 +21,9 @@ const Item = ({ pokeName }: {pokeName: string}) => {
 
   return (
     <div className='item'>
-      <img src={data.img} alt="#" className="image" />
+      <img src={pokeData.img} alt="#" className="image" />
       <img src={follow ? followIcon : unfollowIcon} className="icon" onClick={handleFollowOrUnfollow} />
-      <div className="title">{data.name}</div>
+      <div className="title">{pokeData.name}</div>
     </div>
   )
 }

@@ -2,6 +2,7 @@
  * Type of data return for one pokemon
  */
 export interface PokemonData {
+    id: number;
     name: string;
     sprites: {
         front_default: string
@@ -30,6 +31,7 @@ export interface PokemonLimit {
  * Type of formated data in a simpler format
  */
 export interface PokemonFormatedData {
+    id: number;
     name: string;
     img: string;
     isFollow: boolean;

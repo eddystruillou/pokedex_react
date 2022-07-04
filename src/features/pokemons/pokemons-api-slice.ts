@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { PokemonLimit, PokemonData, PokemonFormatedData } from '../../model';
 
+//TODO UPDATE RTK QUERY SKILL TO MANAGE STORE PROPERLY
 export const pokemoApiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
@@ -33,13 +34,14 @@ export const pokemoApiSlice = createApi({
 
 /**
  * Returns pokemon information in a modified format to simplify the data model
- * @param {PokemonData} result - Object that contain all information of a pokemon
+ * @param {PokemonData} data - Object that contain all information of a pokemon
  * @returns 
  */
-const formatPokemonData = (result: PokemonData) => {
+const formatPokemonData = (data: PokemonData) => {
   return {
-    name: result && result.name ? result.name : "",
-    img: result && result.sprites && result.sprites.front_default ? result.sprites.front_default : "",
+    id: data && data.id ? data.id : 0,
+    name: data && data.name ? data.name : "",
+    img: data && data.sprites && data.sprites.front_default ? data.sprites.front_default : "",
     isFollow: false
   }
 }

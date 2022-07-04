@@ -1,16 +1,53 @@
-import React, { useState } from "react";
-import { useFetchPokemonsQuery } from "../../features/pokemons/pokemons-api-slice";
-import './Board.css';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPokemon } from '../../features/pokemons/pokemons-slice';
+import { PokemonLimit, PokemonData } from "../../model";
 // Components
 import ItemList from '../ItemList/ItemList';
+// Styles
+import './Board.css';
 
 const Board:React.FC = () => {
   // Used to manage the state of the background when the focus of the tab changes
   const [filter, setFilter] = useState(false);
   // The number of pokemon we want to collect
   const [numPokemons, setNumPokemons] = useState(15);
-  // Get list of pokemon
-  const { data = [], isFetching } = useFetchPokemonsQuery(numPokemons);
+  // Update and get the stored data
+  const dispatch = useDispatch();
+  const pokeData = useSelector((state: any) => state.pokemons.pokemons);
+
+  /**
+   * Get a list of pokemons
+   */
+   useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${numPokemons}`)
+      .then(res => res.json())
+      .then(({ results }) => {
+        let promisesArray =  results.map(async (result:PokemonLimit) => {
+          const res = await fetch(result.url);
+          const data = await res.json();
+          return formatPokemonData(data);
+        })
+        return Promise.all(promisesArray);
+      })
+      .then(data => {
+        dispatch(setPokemon(data))
+      });
+  }, [])
+
+  /**
+   * Returns pokemon information in a modified format to simplify the data model
+   * @param {PokemonData} data - Object that contain all information of a pokemon
+   * @returns 
+   */
+  const formatPokemonData = (data: PokemonData) => {
+    return {
+      id: data && data.id ? data.id : 0,
+      name: data && data.name ? data.name : "",
+      img: data && data.sprites && data.sprites.front_default ? data.sprites.front_default : "",
+      isFollow: false
+    }
+  }
 
   return (
     <div className='board'>
@@ -39,7 +76,7 @@ const Board:React.FC = () => {
         </button>
       </div>
       <div className="pokeList">
-        <ItemList pokeList={data} />
+        <ItemList pokeList={pokeData} />
       </div>
     </div>
   )

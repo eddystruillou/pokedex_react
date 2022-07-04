@@ -1,13 +1,13 @@
-import { PokemonLimit } from '../../model';
+import { PokemonFormatedData } from '../../model';
 import './ItemList.css';
 // Components
 import Item from '../Item/Item';
 
-const ItemList = ({ pokeList }: {pokeList: PokemonLimit[]}) => {
+const ItemList = ({ pokeList }: {pokeList: PokemonFormatedData[]}) => {
   return (
     <div className='itemList'>
       {pokeList.map(poke =>
-        <Item key={poke.name} pokeName={poke.name} />
+        <Item key={poke.name} pokeData={poke} />
       )}
     </div>
   )
