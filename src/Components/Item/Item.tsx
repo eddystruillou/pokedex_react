@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { PokemonFormatedData } from '../../model';
 import { useDispatch } from 'react-redux';
 import { followPokemon } from '../../features/pokemons/pokemons-slice';
+import { PokemonFormatedData } from '../../model';
 // Icons
 import unfollowIcon from './../../images/unfollow.png';
 import followIcon from './../../images/follow.png';
