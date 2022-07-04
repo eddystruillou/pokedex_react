@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPokemon } from '../../features/pokemons/pokemons-slice';
 import { PokemonLimit, PokemonData } from "../../model";
+// Used for the type of the state
+import { RootState } from "../../app/store";
 // Components
 import ItemList from '../ItemList/ItemList';
 // Styles
@@ -14,12 +16,13 @@ const Board:React.FC = () => {
   const [numPokemons, setNumPokemons] = useState(15);
   // Update and get the stored data
   const dispatch = useDispatch();
-  const pokeData = useSelector((state: any) => state.pokemons.pokemons);
+  const pokeData = useSelector((state: RootState) => state.pokemons.pokemons);
 
   /**
    * Get a list of pokemons
    */
    useEffect(() => {
+    // TODO optimize the process for retrieving data to avoid having to systematically re-fetch everything
     fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${numPokemons}`)
       .then(res => res.json())
       .then(({ results }) => {
@@ -33,7 +36,7 @@ const Board:React.FC = () => {
       .then(data => {
         dispatch(setPokemon(data))
       });
-  }, [])
+  }, [numPokemons])
 
   /**
    * Returns pokemon information in a modified format to simplify the data model

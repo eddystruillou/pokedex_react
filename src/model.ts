@@ -36,3 +36,13 @@ export interface PokemonFormatedData {
     img: string;
     isFollow: boolean;
 }
+
+/**
+ * Type of formated data in a simpler format
+ */
+ export interface PokemonFormatedData {
+    id: number;
+    name: string;
+    img: string;
+    isFollow: boolean;
+}

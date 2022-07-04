@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { PokemonFormatedData } from '../../model';
 
 interface PokemonsState {
-    pokemons: any;
+    pokemons: PokemonFormatedData[];
 }
 
 const initialState: PokemonsState = {
