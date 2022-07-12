@@ -3,9 +3,3 @@
     flex-wrap: wrap;
     margin: 2em 20px 2em;
 }
-
-.noFollow {
-    display: flex;
-    justify-content: center;
-    margin-top: 10%;
-}
