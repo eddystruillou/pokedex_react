@@ -1,6 +1,7 @@
 .itemList {
-    width: 96%;
-    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em 20px 2em;
 }
 
 .noFollow {

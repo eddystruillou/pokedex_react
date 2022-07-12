@@ -78,13 +78,11 @@ const Board:React.FC = () => {
           Followed Pokémon
         </button>
       </div>
-      <div className="pokeList">
         { filter ? (
           <ItemList pokeList={pokeData ? pokeData.filter(poke => poke.isFollow) : []} />
         ) : (
           <ItemList pokeList={pokeData} />
         )}
-      </div>
     </div>
   )
 }
