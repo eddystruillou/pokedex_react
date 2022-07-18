@@ -24,8 +24,8 @@ const Item = ({ pokeData }: {pokeData: PokemonFormatedData}) => {
 
   return (
     <div className='item'>
-      <img src={pokeData.img} alt="#" className="image" onClick={toggle} />
-      <img src={pokeData.isFollow ? followIcon : unfollowIcon} className="icon" onClick={handleFollowOrUnfollow} />
+      <img src={pokeData.tilePicture} alt="#" className="image" onClick={toggle} />
+      <img src={pokeData.isFollow ? followIcon : unfollowIcon} alt="follow" className="icon" onClick={handleFollowOrUnfollow} />
       <div className="title">{pokeData.name}</div>
       <Card isShowing={isShown} hide={toggle} data={pokeData} />
     </div>

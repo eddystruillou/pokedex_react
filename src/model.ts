@@ -12,7 +12,13 @@ export interface PokemonData {
             }
         }
     };
-    stats: []
+    stats: PokemonStats[]
+}
+
+/**
+ * Type of pokemon stats
+ */
+export interface PokemonStats {
     base_stat: number;
     stat: {
         name: string;
@@ -33,16 +39,8 @@ export interface PokemonLimit {
 export interface PokemonFormatedData {
     id: number;
     name: string;
-    img: string;
-    isFollow: boolean;
-}
-
-/**
- * Type of formated data in a simpler format
- */
- export interface PokemonFormatedData {
-    id: number;
-    name: string;
-    img: string;
+    tilePicture: string;
+    modalPicture: string;
+    stats: PokemonStats[];
     isFollow: boolean;
 }

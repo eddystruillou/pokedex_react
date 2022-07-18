@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom";
+import Description from "../Description/Description";
 import { PokemonFormatedData } from "../../model";
 import "./Card.css";
 
@@ -19,8 +20,11 @@ isShowing
               </button>
             </div>
             <div className="card-body">
-              <img className="card-picture" src={data.img} alt={data ? data.name : "#"} />
+              <img className="card-picture" src={data.modalPicture} alt={data ? data.name : "#"} />
               <h2 className="card-title">{data ? data.name : ""}</h2>
+            </div>
+            <div className="card-stats">
+              <Description stats={data.stats}/>
             </div>
           </div>
         </div>

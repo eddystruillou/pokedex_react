@@ -34,6 +34,7 @@ const Board:React.FC = () => {
         return Promise.all(promisesArray);
       })
       .then(data => {
+        console.log(data)
         dispatch(setPokemon(data))
       });
   }, [numPokemons])
@@ -47,7 +48,9 @@ const Board:React.FC = () => {
     return {
       id: data && data.id ? data.id : 0,
       name: data && data.name ? data.name : "",
-      img: data && data.sprites && data.sprites.front_default ? data.sprites.front_default : "",
+      tilePicture: data && data.sprites && data.sprites.front_default ? data.sprites.front_default : "",
+      modalPicture: data && data.sprites && data.sprites.front_default ? data.sprites.other.dream_world.front_default : "",
+      stats: data ? data.stats : [],
       isFollow: false
     }
   }
